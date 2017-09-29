@@ -29,11 +29,35 @@ server.use(restify.plugins.urlEncodedBodyParser());
 //     res.end('Hello Node! ' + req.url);
 // }).listen(8080);
 
-server.get('/user/:id', function (req, res, next) {
+function respond(res, next, status, data, http_code) {
+    var response = {
+        'status': status,
+        'status-code': http_code,
+        'data': data
+    };
     res.setHeader('content-type', 'application/json');
-    res.writeHead(200);
-    res.end(JSON.stringify(users[parseInt(req.params.id)]));
+    res.writeHead(http_code);
+    res.end(JSON.stringify(response));
     return next();
+}
+
+function success(res, next, data){
+    respond(res, next, 'success', data, 200);
+}
+
+function failure(res, next, data, http_code){
+    respond(res, next, 'failure', data, http_code);
+}
+
+server.get('/user/:id', function (req, res, next) {
+    if(!users[parseInt(req.params.id)] || typeof(users[parseInt(req.params.id)]) == 'undefined'){
+        failure(res, next, "The specified user could not be found", 404);
+    }
+    success(res, next, users[parseInt(req.params.id)]);
+});
+
+server.get('/users', function (req, res, next) {
+    success(res, next, users);
 });
 
 server.post('/user', function (req, res, next) {
@@ -41,10 +65,8 @@ server.post('/user', function (req, res, next) {
     max_user_id++;
     user['id'] = max_user_id;
     users[user.id] = user;
-    res.setHeader('content-type', 'application/json');
-    res.writeHead(200);
-    res.end(JSON.stringify(user));
-    return next();
+
+    success(res, next, user);
 });
 
 
@@ -53,21 +75,11 @@ server.put('/user/:id', function (req, res, next) {
     var update = req.body;
     update['id'] = user['id'];
     users[user.id] = user;
-    res.setHeader('content-type', 'application/json');
-    res.writeHead(200);
-    res.end(JSON.stringify(update));
-    return next();
+    success(res, nexxt, update);
 });
 
 server.del('/user/:id', function (res, req, next) {
     delete users[parseInt(res.params.id)];
-    res.setHeader('content-type', 'application/json');
-    res.writeHead(200);
-    res.end(JSON.stringify(users));
-    return next();
+    success(res, next, users);
 });
 
-function respond(req, res, next) {
-    res.send('hello ' + res.params.name);
-    return next();
-}
