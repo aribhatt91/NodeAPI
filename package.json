@@ -16,6 +16,7 @@
     "mongoose": "^4.11.13",
     "nodemailer": "^4.1.1",
     "nodemon": "^1.12.1",
-    "restify": "^6.0.1"
+    "restify": "^6.0.1",
+    "restify-validator": "^0.3.1"
   }
 }
