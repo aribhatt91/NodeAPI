@@ -1,4 +1,4 @@
-var helper = require('../config/helper.js');
+var helper = require('../config/restify-helper');
 
 var users = {};
 var max_user_id = 0;
