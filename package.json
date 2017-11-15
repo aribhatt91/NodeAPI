@@ -9,13 +9,18 @@
   "author": "aritra",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.15.5",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
     "formidable": "^1.1.1",
     "jasmine-node": "^1.14.5",
     "mongodb": "^2.2.31",
     "mongoose": "^4.11.13",
     "nodemailer": "^4.1.1",
     "nodemon": "^1.12.1",
+    "passport": "^0.4.0",
     "restify": "^6.0.1",
     "restify-validator": "^0.3.1"
   }
