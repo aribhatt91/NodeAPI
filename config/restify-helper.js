@@ -1,4 +1,4 @@
-function _respond(res, next, status, data, http_code) {
+let _respond = (res, next, status, data, http_code) => {
     var response = {
         'status': status,
         'status-code': http_code,
@@ -10,10 +10,10 @@ function _respond(res, next, status, data, http_code) {
     return next();
 }
 
-module.exports.success = function(res, next, data){
+module.exports.success = (res, next, data) => {
     _respond(res, next, 'success', data, 200);
 };
 
-module.exports.failure = function(res, next, data, http_code){
+module.exports.failure = (res, next, data, http_code) => {
     _respond(res, next, 'failure', data, http_code);
 };

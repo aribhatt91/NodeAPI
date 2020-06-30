@@ -1,27 +1,33 @@
 {
-  "name": "restapi",
-  "version": "1.0.0",
-  "description": "A simple api with node",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "aritra",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "cookie-parser": "^1.4.3",
-    "express": "^4.15.5",
-    "express-handlebars": "^3.0.0",
-    "express-session": "^1.15.6",
-    "formidable": "^1.1.1",
-    "jasmine-node": "^1.14.5",
-    "mongodb": "^2.2.31",
-    "mongoose": "^4.11.13",
-    "nodemailer": "^4.1.1",
-    "nodemon": "^1.12.1",
-    "passport": "^0.4.0",
-    "restify": "^6.0.1",
-    "restify-validator": "^0.3.1"
-  }
+    "name": "restapi",
+    "version": "1.0.0",
+    "description": "A simple api with node",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "aritra",
+    "license": "ISC",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.18.2",
+        "connect-flash": "^0.1.1",
+        "cookie-parser": "^1.4.3",
+        "dotenv": "^8.2.0",
+        "express": "^4.15.5",
+        "express-handlebars": "^3.0.0",
+        "express-session": "^1.15.6",
+        "formidable": "^1.1.1",
+        "jasmine-node": "^1.14.5",
+        "mongodb": "^3.5.9",
+        "mongoose": "^5.9.19",
+        "nodemailer": "^4.1.1",
+        "nodemon": "^1.12.1",
+        "passport": "^0.4.1",
+        "passport-local": "^1.0.0",
+        "restify": "^6.0.1",
+        "restify-validator": "^0.3.1"
+    }
 }
